@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>English</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/style_light.css" id="light-css" />
+  </head>
+  <body>
+    <div id="header">
+      <a href="" class="no-deco-a">
+        <div class="title">English</div>
+      </a>
+      <div id="theme-toggle-button">
+        <img
+          src="img/icon/sun.svg"
+          alt="theme toggle sun icon"
+          class="theme-toggle-icon",
+          alt = "change theme"
+        />
+      </div>
+    </div>
+    <div id="main-area">
+      <div id="problem-area">
+        <div id="word-container" class="container">
+          <div class="word-box wb2">
+            <div class="word" id="word2"></div>
+          </div>
+          <div class="word-box wb1">
+            <div class="word" id="word1"></div>
+          </div>
+          <div class="word-box wb0">
+            <div class="word" id="word0"></div>
+          </div>
+        </div>
+        <div id="answer-container" class="container">
+          <div id="answer"></div>
+        </div>
+        <div id="input-container" class="container">
+          <input type="text" id="input-box" />
+        </div>
+        <div id="pre-result-container">
+          <div id="pre-ja-box"></div>
+          <div id="pre-result-box"></div>
+        </div>
+      </div>
+
+      <div id="results-area">
+        <table id="results-table"></table>
+        <button id="see-more-results-button" onclick="seeMoreResults()">
+          See all
+        </button>
+      </div>
+    </div>
+    <script src="list/word_list_ob.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

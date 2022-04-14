@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  }
+  
+  .no-deco-a {
+    text-decoration: none;
+  }
+  
+  #header {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    display:flex;
+    justify-content: space-between;
+  }
+  
+  .title {
+    margin-left: 2rem;
+    padding: 0.3rem;
+    font-size: 1.4rem;
+    font-family: Roboto, RobotoDraft, Arial, sans-serif;
+  }
+  
+  #theme-toggle-button{
+      margin-right: 2rem;
+      cursor: pointer;
+  }
+
+  .theme-toggle-icon{
+      width: 15px;
+  }
+  
+  #main-area {
+    display: flex;
+    justify-content: right;
+    height: 700px;
+  }
+  
+  #problem-area {
+    width: 750px;
+    padding-left: 3rem;
+  }
+  
+  .container {
+    padding: 1rem;
+    margin: 0 auto;
+  }
+  
+  #word-container {
+    margin-top: 2rem;
+  }
+  
+  .word-box {
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    /* background: #3c3d3f; */
+    width: 85%;
+  }
+  
+  .word {
+    line-height: 1.7rem;
+    font-family: "Yu gothic";
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-left: 23px;
+  }
+  
+  .wb2 {
+    opacity: 0.2;
+  }
+  .wb1 {
+    opacity: 0.5;
+  }
+  .wb0 {
+    opacity: 1;
+  }
+  .hinshi-icon {
+    margin: 0 0.4rem 0 0px;
+    width: 1.4rem;
+    height: 1.4rem;
+    position: relative;
+    top: 0.2rem;
+  }
+  .hinshi-icon + .hinshi-icon {
+    margin-left: 0;
+  }
+  #answer-container {
+    margin: -2.4rem 0 -0.22rem 31px;
+    height: 1.5rem;
+  }
+  
+  #answer {
+    letter-spacing: 0.5px;
+    font-family: Roboto, RobotoDraft, Arial, sans-serif;
+    margin-left: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  #input-container {
+    box-shadow: 0 2px 6px #1b1b1b;
+    padding: 0.7rem;
+    border-radius: 30px;
+    width: 70%;
+    margin-left: 33px;
+    background: #2a2b2e;
+  }
+  
+  #input-box {
+    letter-spacing: 0.5px;  
+    margin-left: 2rem;
+    font-size: 1.3rem;
+    border: 0;
+    width: 90%;
+  }
+  
+  input:focus {
+    outline: 0;
+  }
+  /* pre result */
+  #pre-result-container {
+    margin: 2rem 0 0 1rem;
+    height: 200px;
+  }
+  #pre-ja-box {
+    padding: 1rem;
+  }
+  #pre-ja-box > img {
+    font-family: "Yu gothic";
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+  #pre-result-box {
+    margin-left: 0.8rem;
+  }
+  #pre-result-box > span {
+    display: inline-block;
+    width: 65px;
+    padding: 8px 10px;
+  }
+  #pre-result-box > span:nth-child(1) {
+    width: 45px;
+    text-align: right;
+  }
+  #pre-result-box > span:nth-child(2) {
+    width: 174px;
+  }
+  
+  /* results */
+  
+  #results-area {
+    overflow: auto;
+    width: 35%;
+  }
+  #results-table {
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  #results-table > tr > th {
+    text-align: left;
+    padding: 8px 10px;
+    width: 12.5%;
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
+  #results-table > tr > th:nth-child(1) {
+    width: 5%;
+  }
+  #results-table > tr > th:nth-child(2) {
+    width: 30%;
+  }
+  #results-table > tr > td {
+    padding: 8px 10px;
+  }
+  .result-rank {
+    text-align: right;
+  }
+  .unit {
+    font-size: 0.83rem;
+  }
+  
+  #see-more-results-button {
+    display: block;
+    margin: 0.5rem auto;
+    border: 0;
+    cursor: pointer;
+    width: 100px;
+    padding: 0.2rem 1rem;
+    border-radius: 10px;
+  }
+  
+  #see-more-results-button:hover {
+    transition: 0.3s;
+  }
+  
