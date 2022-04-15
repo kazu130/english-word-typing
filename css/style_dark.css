@@ -15,7 +15,7 @@ body {
     color: white;
 }
 .word-box {
-  border-left: #494a4e solid 10px;
+  border-left: #56575c solid 10px;
   /* background: #3c3d3f; */
   background: linear-gradient(90deg, #343439 0%, #343439cc 70%, #00000000 100%);
 }

@@ -7,6 +7,7 @@ var hinshi_list = [
   ["ｓ", "setsuzokushi"],
   ["ｆ", "fukushi"],
   ["ｃ", "jukugo"],
+  ["ｈ", "settou"]
 ];
 
 function getRnd(max) {
@@ -17,11 +18,14 @@ async function updateProblems() {
   words_ja.shift();
   words_en.shift();
   replaced_words_ja.shift();
-  rnd0 = getRnd(3);
-  if (rnd0 == 0) {
-    rnd = preferred_words[getRnd(preferred_words.length)];
-  } else {
-    rnd = getRnd(word_list.length);
+  while (1) {
+    rnd0 = getRnd(3);
+    if (rnd0 == 0) {
+      rnd = preferred_words[getRnd(preferred_words.length)];
+    } else {
+      rnd = getRnd(word_list.length);
+    }
+    if (rnd != words_num[1]) break;
   }
   words_num.push(rnd);
   //   words_ja.push(word_list[rnd][1].replace(/[ａ-ｚ]/g, ""));
@@ -36,6 +40,7 @@ async function updateProblems() {
         '.png" class="hinshi-icon">'
     );
   }
+  replaced = replaced.replace(/(\<br\>\<img[^>]*?\>)\<br\>/, "$1");
   replaced_words_ja.push(replaced.replace(/^\<br\>/, ""));
 }
 function drawWords() {
@@ -120,6 +125,7 @@ function drawResults() {
         }),
         $("<td>", {
           class: "result-word",
+          id: "rw" + i,
           text: results[i][1][0],
         }),
         $("<td>", {
@@ -159,6 +165,7 @@ function seeMoreResults() {
           }),
           $("<td>", {
             class: "result-word",
+            id: "rw" + i,
             text: results[i][1][0],
           }),
           $("<td>", {
@@ -182,7 +189,10 @@ function seeMoreResults() {
     }
     $("#see-more-results-button").hide();
     $("#see-more-results-button").text("See all");
-  }, 1000);
+  }, 500);
+  // setTimeout(() => {
+  //   setHoverListener();
+  // }, 15000);
 }
 
 function speak(text) {
@@ -199,7 +209,7 @@ function init() {
   if (localStorage.getItem("theme")) {
     if (localStorage.getItem("theme") == "dark") {
       toDarkTheme();
-    }else{
+    } else {
       toLightTheme();
     }
   }
@@ -234,6 +244,9 @@ function init() {
   setTimeout(() => {
     drawWords();
     drawResults();
+    $(".result-word").hover(function (e) {
+      showJa(e);
+    });
   }, 100);
 }
 
@@ -271,6 +284,9 @@ $("#input-box").on("input", async function (e) {
       })
       .then(() => {
         drawWords();
+        $(".result-word").hover(function (e) {
+          showJa(e);
+        });
       })
       .catch((e) => {
         console.log(e);
@@ -302,7 +318,7 @@ function toLightTheme() {
   );
   $("#theme-toggle-button").append(
     $("<img>", {
-      src: "img/icon/sun.svg",
+      src: "img/icon/moon.svg",
       class: "theme-toggle-icon",
     })
   );
@@ -321,7 +337,7 @@ function toDarkTheme() {
   );
   $("#theme-toggle-button").append(
     $("<img>", {
-      src: "img/icon/moon.svg",
+      src: "img/icon/sun.svg",
       class: "theme-toggle-icon",
     })
   );
@@ -329,11 +345,34 @@ function toDarkTheme() {
 }
 
 $("#theme-toggle-button").click(function () {
-  $("#main-area").hide();
-  if ($("#dark-css").length) {
-    toLightTheme();
-  } else {
-    toDarkTheme();
-  }
-  $("#main-area").fadeIn(600);
+  $("body").fadeOut(300);
+  setTimeout(() => {
+    if ($("#dark-css").length) {
+      toLightTheme();
+    } else {
+      toDarkTheme();
+    }
+  }, 300);
+  $("body").fadeIn(300);
 });
+
+function setHoverListener() {
+  $(".result-word").hover(function (e) {
+    showJa(e);
+  });
+}
+
+function showJa(e) {
+  let n = e.target.id.replace(/^(ja-)?rw/, "");
+  if (e.target.id.match(/^rw/)) {
+    console.log(results[n][1][1]);
+    e.target.innerText = results[n][1][1]
+      .replace(/[ａ-ｚ]/g, ", ")
+      .replace(/^, /, "")
+      .replace(/[(（].*?[)）]/g, "");
+    e.target.id = "ja-rw" + n;
+  } else {
+    e.target.innerText = results[n][1][0];
+    e.target.id = "rw" + n;
+  }
+}
