@@ -309,8 +309,7 @@ $("#input-box").on("input", async function (e) {
 });
 
 function toLightTheme() {
-  // $("#dark-css").remove();
-  // $(".theme-toggle-icon").remove();
+  $("#dark-css").remove();
   $("head").append(
     $("<link>", {
       rel: "stylesheet",
@@ -318,7 +317,7 @@ function toLightTheme() {
       id: "light-css",
     })
   );
-  $("#theme-toggle-button").append(
+  $("#theme-toggle-button").html(
     $("<img>", {
       src: "img/icon/moon.svg",
       class: "theme-toggle-icon",
@@ -329,7 +328,6 @@ function toLightTheme() {
 
 function toDarkTheme() {
   $("#light-css").remove();
-  $(".theme-toggle-icon").remove();
   $("head").append(
     $("<link>", {
       rel: "stylesheet",
@@ -337,7 +335,7 @@ function toDarkTheme() {
       id: "dark-css",
     })
   );
-  $("#theme-toggle-button").append(
+  $("#theme-toggle-button").html(
     $("<img>", {
       src: "img/icon/sun.svg",
       class: "theme-toggle-icon",
