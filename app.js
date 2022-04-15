@@ -7,7 +7,7 @@ var hinshi_list = [
   ["ｓ", "setsuzokushi"],
   ["ｆ", "fukushi"],
   ["ｃ", "jukugo"],
-  ["ｈ", "settou"]
+  ["ｈ", "settou"],
 ];
 
 function getRnd(max) {
@@ -212,6 +212,8 @@ function init() {
     } else {
       toLightTheme();
     }
+  } else {
+    toLightTheme();
   }
   if (localStorage.getItem("results_array")) {
     results = JSON.parse(localStorage.getItem("results_array"));
@@ -307,8 +309,8 @@ $("#input-box").on("input", async function (e) {
 });
 
 function toLightTheme() {
-  $("#dark-css").remove();
-  $(".theme-toggle-icon").remove();
+  // $("#dark-css").remove();
+  // $(".theme-toggle-icon").remove();
   $("head").append(
     $("<link>", {
       rel: "stylesheet",
