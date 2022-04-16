@@ -7,7 +7,7 @@ body {
   border-bottom: 1px solid #6b6b6b;
 }
 
-.title {
+.title > a {
   color: #e8eaed;
 }
 

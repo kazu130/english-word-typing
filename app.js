@@ -153,46 +153,60 @@ function drawResults() {
 }
 
 function seeMoreResults() {
-  $("#see-more-results-button").text("Loading...");
-  setTimeout(() => {
-    for (let i = 50; i < results.length; i++) {
-      results[i][2][2] = results[i][2][2] == "-" ? 0 : results[i][2][2];
-      $("#results-table").append(
-        $("<tr>").append(
-          $("<td>", {
-            class: "result-rank",
-            text: i + 1,
-          }),
-          $("<td>", {
-            class: "result-word",
-            id: "rw" + i,
-            text: results[i][1][0],
-          }),
-          $("<td>", {
-            class: "result-rate",
-            html: Math.floor(results[i][2][2]) + '<span class="unit">%</span>',
-          }),
-          $("<td>", {
-            class: "result-correct",
-            text: results[i][2][0],
-          }),
-          $("<td>", {
-            class: "result-miss",
-            text: results[i][2][1],
-          }),
-          $("<td>", {
-            class: "result-number",
-            text: results[i][0] + 1,
-          })
-        )
+  return new Promise((resolve, reject) => {
+    $("#see-more-results-button").text("Loading...");
+    setTimeout(() => {
+      resolve();
+    }, 500);
+  })
+    .then(() => { 
+      $("#results-table").html(
+        "<tr><th>Rank</th><th>Word</th><th>Rate</th><th>O</th><th>X</th><th>No.</th></tr>"
       );
-    }
-    $("#see-more-results-button").hide();
-    $("#see-more-results-button").text("See all");
-  }, 500);
-  // setTimeout(() => {
-  //   setHoverListener();
-  // }, 15000);
+      for (let i = 0; i < results.length; i++) {
+        results[i][2][2] = results[i][2][2] == "-" ? 0 : results[i][2][2];
+        $("#results-table").append(
+          $("<tr>").append(
+            $("<td>", {
+              class: "result-rank",
+              text: i + 1,
+            }),
+            $("<td>", {
+              class: "result-word",
+              id: "rw" + i,
+              text: results[i][1][0],
+            }),
+            $("<td>", {
+              class: "result-rate",
+              html:
+                Math.floor(results[i][2][2]) + '<span class="unit">%</span>',
+            }),
+            $("<td>", {
+              class: "result-correct",
+              text: results[i][2][0],
+            }),
+            $("<td>", {
+              class: "result-miss",
+              text: results[i][2][1],
+            }),
+            $("<td>", {
+              class: "result-number",
+              text: results[i][0] + 1,
+            })
+          )
+        );
+      }
+    })
+    .then(() => {
+      $("#see-more-results-button").hide();
+      $("#see-more-results-button").text("See all");
+    })
+    .then(() => {
+      setHoverListener();
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 }
 
 function speak(text) {

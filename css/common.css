@@ -5,12 +5,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  height: 100vh;
 }
-
-.no-deco-a {
+.title > a {
   text-decoration: none;
 }
-
 #header {
   display: flex;
   align-items: center;
@@ -18,7 +17,6 @@ body {
   display: flex;
   justify-content: space-between;
 }
-
 .title {
   margin-left: 2rem;
   padding: 0.3rem;
@@ -30,38 +28,29 @@ body {
   margin-right: 2rem;
   cursor: pointer;
 }
-
+@keyframes icon-rotate {
+  to {
+    transform: rotate(245deg);
+  }
+}
 .theme-toggle-icon {
   width: 15px;
   transition: 0.5s;
+  animation: icon-rotate 1s forwards;
 }
-
-.theme-toggle-icon:hover {
-  transform: rotate(245deg);
-  transition: 1s;
-}
-
-.theme-toggle-icon:active {
-  transition: 0.1s;
-  transform: rotate(280deg);
-}
-
 #main-area {
   display: flex;
   justify-content: right;
-  height: 700px;
+  height: calc(100%-65px);
 }
-
 #problem-area {
   width: 750px;
   padding-left: 3rem;
 }
-
 .container {
   padding: 1rem;
   margin: 0 auto;
 }
-
 #word-container {
   margin-top: 2rem;
 }
@@ -166,7 +155,9 @@ input:focus {
 /* results */
 
 #results-area {
-  overflow: auto;
+  height: calc(100vh - 66px);
+  overflow-y: scroll;
+  overflow-x: hidden;
   width: 35%;
 }
 #results-table {
@@ -199,7 +190,7 @@ table {
 }
 .result-word:hover {
   cursor: pointer;
-  font-family: 'Noto Sans JP', Arial, san-serif;
+  font-family: "Noto Sans JP", Arial, san-serif;
   line-height: 24px;
 }
 
@@ -209,9 +200,6 @@ td[class="result-word"][id*="ja-rw"] {
   height: 1.1rem;
   overflow: hide;
   font-size: 0.85rem;
-}
-td::-webkit-scrollbar {
-  display: none;
 }
 
 .unit {
