@@ -159,7 +159,7 @@ function seeMoreResults() {
       resolve();
     }, 500);
   })
-    .then(() => { 
+    .then(() => {
       $("#results-table").html(
         "<tr><th>Rank</th><th>Word</th><th>Rate</th><th>O</th><th>X</th><th>No.</th></tr>"
       );
@@ -202,21 +202,22 @@ function seeMoreResults() {
       $("#see-more-results-button").text("See all");
     })
     .then(() => {
-      setHoverListener();
+      setTableEventListener();
     })
     .catch((e) => {
       console.log(e);
     });
 }
 
+var speakInstance;
 function speak(text) {
-  var speak = new SpeechSynthesisUtterance();
-  speak.text = text;
-  speak.rate = 1;
-  speak.pitch = 1.3;
-  speak.lang = "en-US";
+  speakInstance = new SpeechSynthesisUtterance();
+  speakInstance.text = text;
+  speakInstance.rate = 1;
+  speakInstance.pitch = 1.3;
+  speakInstance.lang = "en-US";
 
-  speechSynthesis.speak(speak);
+  speechSynthesis.speak(speakInstance);
 }
 
 function init() {
@@ -260,9 +261,7 @@ function init() {
   setTimeout(() => {
     drawWords();
     drawResults();
-    $(".result-word").hover(function (e) {
-      showJa(e);
-    });
+    setTableEventListener();
   }, 100);
 }
 
@@ -370,14 +369,19 @@ $("#theme-toggle-button").click(function () {
   $("body").fadeIn(300);
 });
 
-function setHoverListener() {
+function setTableEventListener() {
   $(".result-word").hover(function (e) {
     showJa(e);
   });
+  $(".result-word").mousedown(function (e) {
+    clickSpeak(e);
+  });
 }
 
+var targetEn;
 function showJa(e) {
   let n = e.target.id.replace(/^(ja-)?rw/, "");
+  targetEn = e.target.innerText;
   if (e.target.id.match(/^rw/)) {
     console.log(results[n][1][1]);
     e.target.innerText = results[n][1][1]
@@ -389,4 +393,9 @@ function showJa(e) {
     e.target.innerText = results[n][1][0];
     e.target.id = "rw" + n;
   }
+}
+
+function clickSpeak(e) {
+  speechSynthesis.cancel();
+  speak(targetEn);
 }
