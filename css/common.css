@@ -58,7 +58,6 @@ header {
   cursor: pointer;
   border-radius: 20px;
   border: none;
-  outline: none;
   padding: 4px;
   background: var(--primary-bg-color);
   display: flex;
