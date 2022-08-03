@@ -24,6 +24,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -31,9 +32,7 @@ body {
   height: 100vh;
   background-color: var(--secondary-bg-color);
 }
-.title > a {
-  text-decoration: none;
-}
+
 header {
   display: flex;
   align-items: center;
@@ -51,6 +50,7 @@ header {
   font-weight: 500;
 }
 .title > a {
+  text-decoration: none;
   color: var(--secondary-text-color);
 }
 #theme-toggle-button {
@@ -70,16 +70,7 @@ header {
 #theme-toggle-button path {
   fill: var(--secondary-text-color);
 }
-@keyframes icon-rotate {
-  to {
-    transform: rotate(245deg);
-  }
-}
-.theme-toggle-icon {
-  width: 15px;
-  transition: 0.5s;
-  animation: icon-rotate 1s forwards;
-}
+
 main {
   display: grid;
   grid-template-columns: 62% auto;
@@ -155,7 +146,6 @@ div[class$="problem-form"] {
 div[class^="word-box"] {
   padding: 14px 0;
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 6px;
@@ -165,7 +155,6 @@ div[class^="word-box"] {
 .word-row {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   font-size: 24px;
   font-family: "Noto Sans JP", sans-serif;
   color: var(--primary-text-color);
@@ -245,7 +234,6 @@ div[class^="word-box"] {
   outline: none;
   background: transparent;
   z-index: 100;
-  /* background: red; */
 }
 input:focus {
   outline: 0;
@@ -368,9 +356,6 @@ input:focus {
 .table-header > th:nth-child(2) {
   width: 40%;
 }
-#results-table > tr:hover {
-  /* background: rgb(244, 248, 251); */
-}
 #results-table > tr > td {
   padding: 12px 10px;
 }
@@ -382,9 +367,6 @@ input:focus {
   position: absolute;
   left: 5%;
   opacity: 0.6;
-}
-#results-table > tr:nth-child(2n + 1) {
-  /* background: var(--secondary-bg-color); */
 }
 .result-rank {
   text-align: right;
