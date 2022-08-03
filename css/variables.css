@@ -1,0 +1,68 @@
+:root {
+  --primary-bg-color: #ffffff;
+  --secondary-bg-color: #f5f7f7;
+  --border-1px-color: #bebebe;
+  --primary-text-color: rgb(30, 30, 30);
+  --secondary-text-color: #7a7e83;
+  --answer-text-color: #adadad;
+  --input-text-color: rgb(83, 83, 83);
+  --btn-bg-color: rgb(0, 115, 255);
+  --border-color: #dadce0;
+  --area-border: 2px solid #dadce0;
+  --primary-accent-color: #f6f9fa;
+  --correct-text-color: rgb(79, 216, 33);
+  --miss-text-color: rgb(246, 14, 14);
+  --box-shadow-1: 0 1px 2px rgba(54, 64, 67, 0.2),
+    0 2px 3px 1px rgba(54, 64, 67, 0.1);
+  --box-shadow-2: 0 1px 2px rgba(54, 64, 67, 0.2);
+  --input-box-shadow: inset 0 1px 3px 1px rgb(198, 198, 198);
+  /* hinshi icon*/
+  --hinshi-icon-bg-color-meishi: rgb(38, 100, 180);
+  --hinshi-icon-bg-color-tadoushi: rgb(220, 12, 12);
+  --hinshi-icon-bg-color-jidoushi: rgb(12, 149, 12);
+  --hinshi-icon-bg-color-keiyoushi: rgb(233, 137, 12);
+  --hinshi-icon-bg-color-zenchishi: red;
+  --hinshi-icon-bg-color-setsuzokushi: red;
+  --hinshi-icon-bg-color-fukushi: rgb(167, 88, 220);
+  --hinshi-icon-bg-color-jukugo: rgb(210, 38, 121);
+  --hinshi-icon-bg-color-settou: red;
+    /* scrollbar */
+    --scrollbar-thumb-color:rgb(226, 226, 226);
+    --scrollbar-thumb-hover-color:rgb(206, 206, 206);
+    --scrollbar-thumb-active-color:rgb(186, 186, 186);
+}
+html[color-scheme="dark"] {
+  --primary-bg-color: #2a2a2a;
+  --secondary-bg-color: #1e1e1e;
+  --border-1px-color: #5d5d5d;
+  --border-color: #1e1e1e;
+  --primary-text-color: rgb(213, 213, 213);
+  --secondary-text-color: #b7b7b7;
+  --answer-text-color: #5b5b5b;
+  --input-text-color: rgb(188, 188, 188);
+  --btn-bg-color: rgb(46, 136, 246);
+  --primary-accent-color: #266f87;
+  --correct-text-color: rgb(89, 211, 48);
+  --miss-text-color: rgb(234, 69, 69);
+  --box-shadow-1: none;
+  --box-shadow-2: none;
+  --input-box-shadow: none;
+  --box-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.359),
+    0 2px 3px 1px rgba(0, 0, 0, 0.184);
+  --box-shadow-2: 0 1px 2px rgba(0, 0, 0, 0.694);
+  --input-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.669);
+  /* hinshi icon*/
+  --hinshi-icon-bg-color-meishi: rgb(38, 75, 122);
+  --hinshi-icon-bg-color-tadoushi: rgb(136, 22, 22);
+  --hinshi-icon-bg-color-jidoushi: rgb(38, 115, 38);
+  --hinshi-icon-bg-color-keiyoushi: rgb(162, 96, 9);
+  --hinshi-icon-bg-color-zenchishi: rgb(118, 118, 10);
+  --hinshi-icon-bg-color-setsuzokushi: rgb(16, 121, 107);
+  --hinshi-icon-bg-color-fukushi: rgb(167, 88, 220);
+  --hinshi-icon-bg-color-jukugo: rgb(210, 38, 121);
+  --hinshi-icon-bg-color-settou: red;
+  /* scrollbar */
+  --scrollbar-thumb-color:rgb(57, 57, 57);
+  --scrollbar-thumb-hover-color:rgb(67, 67, 67);
+  --scrollbar-thumb-active-color:rgb(77, 77, 77);
+}

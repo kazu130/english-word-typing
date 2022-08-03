@@ -1,62 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" color-scheme="dark">
   <head>
-    <style>
-      body {
-        background: #202124;
-      }
-    </style>
     <meta charset="UTF-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>English Word Typing</title>
+    <title>EWT</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/mortezaom/google-sans-cdn@master/fonts.css"
+    />
+    <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/style_light.css" id="light-css" />
   </head>
   <body>
-    <div id="header">
+    <header>
       <div class="title">
-        <a href="">English Word Typing</a>
+        <a href="">EWT</a>
       </div>
-      <div id="theme-toggle-button">
-        <!-- <img
-          src="img/icon/moon.svg"
-          alt="theme toggle sun icon"
-          class="theme-toggle-icon"
-        /> -->
-      </div>
-    </div>
-    <div id="main-area">
-      <div id="problem-area">
-        <div id="word-container" class="container">
-          <div class="word-box wb2">
-            <div class="word" id="word2"></div>
+      <button id="theme-toggle-button">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+          <path
+            d="M1 13v-2h6v2Zm6.75-3.85-2.1-2.1 1.4-1.4 2.1 2.1ZM11 7V1h2v6Zm5.25 2.15-1.4-1.4 2.1-2.1 1.4 1.4ZM17 13v-2h6v2Zm-5 2q-1.25 0-2.125-.875T9 12q0-1.25.875-2.125T12 9q1.25 0 2.125.875T15 12q0 1.25-.875 2.125T12 15Zm4.95 3.35-2.1-2.1 1.4-1.4 2.1 2.1Zm-9.9 0-1.4-1.4 2.1-2.1 1.4 1.4ZM11 23v-6h2v6Z"
+          />
+        </svg>
+      </button>
+    </header>
+    <main>
+      <div class="problem-area">
+        <div class="next-problem-form">
+          <div class="problem-number-box">
+            <span class="problem-number-pre">Next</span>
           </div>
-          <div class="word-box wb1">
-            <div class="word" id="word1"></div>
-          </div>
-          <div class="word-box wb0">
-            <div class="word" id="word0"></div>
+          <div class="next-word-container">
+            <div class="word-box" id="word-box-1"></div>
           </div>
         </div>
-        <div id="answer-container" class="container">
-          <div id="answer"></div>
-        </div>
-        <div id="input-container" class="container">
-          <input type="text" id="input-box" />
-        </div>
-        <div id="pre-result-container">
-          <div id="pre-ja-box"></div>
-          <div id="pre-result-box"></div>
+        <div class="problem-form">
+          <div class="problem-number-box">
+            <span class="problem-number-pre">No.</span>
+            <span id="problem-number"></span>
+          </div>
+          <div class="word-container">
+            <div class="word-box" id="word-box-0"></div>
+          </div>
+          <div class="input-container">
+            <input class="input-pos" type="text" id="input-box" />
+            <div class="input-pos" id="answer"></div>
+          </div>
         </div>
       </div>
-
+      <div class="pre-result-area">
+        <div id="pre-result-en"></div>
+        <div class="pre-result-ja-box">
+          <div id="pre-result-ja"></div>
+        </div>
+        <div class="pre-result-details-box">
+          <div class="detail-wrapper">
+            <div class="detail-pre">Rank</div>
+            <div id="pre-result-rank">-</div>
+          </div>
+          <div class="detail-wrapper">
+            <div class="detail-pre">Rate</div>
+            <div id="pre-result-rate">-</div>
+            <div class="unit">%</div>
+          </div>
+          <div class="detail-wrapper">
+            <div class="detail-pre">O</div>
+            <div id="pre-result-correct">-</div>
+          </div>
+          <div class="detail-wrapper">
+            <div class="detail-pre">X</div>
+            <div id="pre-result-miss">-</div>
+          </div>
+          <div class="detail-wrapper">
+            <div class="detail-pre">No.</div>
+            <div id="pre-result-number">-</div>
+          </div>
+        </div>
+      </div>
       <div id="results-area">
+        <h2 class="section-title">Score</h2>
         <table id="results-table"></table>
-        <button id="see-more-results-button" onclick="seeMoreResults()">
-          See all
-        </button>
+        <div class="results-footer">
+          <button id="see-more-results-button" onclick="seeMoreResults()">
+            Show all
+          </button>
+        </div>
       </div>
-    </div>
+    </main>
     <script src="list/word_list_ob.js"></script>
     <script src="app.js"></script>
   </body>

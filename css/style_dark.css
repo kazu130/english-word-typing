@@ -16,7 +16,6 @@ body {
 }
 .word-box {
   border-left: #56575c solid 10px;
-  /* background: #3c3d3f; */
   background: linear-gradient(90deg, #343439 0%, #343439cc 70%, #00000000 100%);
 }
 
@@ -26,11 +25,6 @@ body {
 
 #answer {
   color: #eb5454;
-}
-
-#input-container {
-  box-shadow: 0 2px 6px #0e0e0e inset;
-  background: #2a2b2e;
 }
 
 #input-box {
