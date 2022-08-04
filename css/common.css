@@ -39,7 +39,7 @@ header {
   height: 4rem;
   display: flex;
   justify-content: space-between;
-  background-color: var(--primary-bg-color);
+  background-color: var(--header-bg-color);
   border-bottom: 1px solid var(--border-color);
 }
 .title {
@@ -59,7 +59,7 @@ header {
   border-radius: 20px;
   border: none;
   padding: 4px;
-  background: var(--primary-bg-color);
+  background: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,8 +128,8 @@ div[class$="problem-form"] {
 }
 .problem-number-box {
   position: absolute;
-  top: 12px;
-  left: 20px;
+  top: 18px;
+  left: 28px;
   color: var(--secondary-text-color);
 }
 .problem-number-pre {
@@ -144,13 +144,18 @@ div[class$="problem-form"] {
   padding-left: 62px;
 }
 div[class^="word-box"] {
-  padding: 14px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 6px;
   width: 95%;
   height: 100%;
+}
+#word-box-1 {
+  padding: 12px 0;
+}
+#word-box-0 {
+  padding: 20px 0;
 }
 .word-row {
   display: flex;
@@ -248,7 +253,7 @@ input:focus {
   grid-template-columns: 74% auto;
   grid-template-rows: 56px auto;
   border-radius: 16px;
-  background: var(--primary-bg-color);
+  background: var(--tertiary-bg-color);
   border: 1px solid var(--border-color);
   min-height: 200px;
   justify-self: stretch;
@@ -268,6 +273,7 @@ input:focus {
 }
 #pre-result-ja .word-row {
   line-height: 32px;
+  color: var(--primary-text-color);
 }
 #pre-result-ja [class^="hinshi-icon-"] {
   margin-top: 7px;
@@ -275,7 +281,7 @@ input:focus {
 .pre-result-details-box {
   grid-column: 2 / span 1;
   grid-row: 1 / span 2;
-  border-left: 1px solid var(--border-color);
+  border-left: 1px solid var(--separator-color);
   padding-left: 20%;
 }
 .pre-result-details-box .detail-wrapper {
@@ -309,20 +315,22 @@ input:focus {
   grid-row: 1 / span 4;
   height: 100%;
   overflow-y: scroll;
-  background: var(--primary-bg-color);
+  background:var(--tertiary-bg-color);
   width: 100%;
   border-left: 1px solid var(--border-color);
   position: relative;
 }
-#results-area > .section-title {
+#results-area .section-title-box {
+  background: var(--tertiary-bg-color);
+  height: 120px;
+  padding: 32px 20px;
+}
+#results-area .section-title {
   margin: 0;
   font-size: 1.8rem;
   font-weight: normal;
   color: var(--primary-text-color);
   opacity: 0.8;
-  background: var(--primary-bg-color);
-  padding: 32px;
-  background: var(--primary-bg-color);
 }
 #results-table {
   color: var(--primary-text-color);
@@ -331,7 +339,7 @@ input:focus {
   border-radius: 16px;
   border-collapse: collapse;
   width: 100%;
-  background: var(--primary-bg-color);
+  background: var(--tertiary-bg-color);
 }
 .table-header {
   position: sticky;
@@ -347,7 +355,7 @@ input:focus {
   height: 54px;
   vertical-align: middle;
   color: var(--primary-text-color);
-  background: var(--primary-bg-color);
+  background: var(--tertiary-bg-color);
   width: 12%;
 }
 .table-header > th:nth-child(1) {
@@ -363,10 +371,10 @@ input:focus {
   content: "";
   width: 90%;
   height: 1px;
-  background-color: var(--border-color);
+  background-color: var(--separator-color);
   position: absolute;
   left: 5%;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 .result-rank {
   text-align: right;
@@ -378,7 +386,6 @@ input:focus {
   overflow: hidden;
   line-height: 24px;
   cursor: pointer;
-  /* font-weight: bold; */
 }
 .result-word span {
   width: 100% !important;
@@ -454,7 +461,7 @@ input:focus {
     overflow: visible;
     height: auto;
   }
-  #results-area .section-title {
+  #results-area .section-title-box {
     border-radius: 16px 16px 0 0;
   }
   .results-footer {

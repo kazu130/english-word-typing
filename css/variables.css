@@ -1,13 +1,15 @@
 :root {
-  --primary-bg-color: #ffffff;
-  --secondary-bg-color: #f5f7f7;
-  --border-1px-color: #bebebe;
+  --header-bg-color: rgb(255, 255, 255);
+  --primary-bg-color: rgb(255, 255, 255);
+  --secondary-bg-color: rgb(245, 247, 247);
+  --tertiary-bg-color: rgb(252, 252, 252);
   --primary-text-color: rgb(30, 30, 30);
   --secondary-text-color: #7a7e83;
   --answer-text-color: #adadad;
   --input-text-color: rgb(83, 83, 83);
   --btn-bg-color: rgb(0, 115, 255);
   --border-color: #dadce0;
+  --separator-color:rgb(207, 207, 207);
   --area-border: 2px solid #dadce0;
   --primary-accent-color: #f6f9fa;
   --correct-text-color: rgb(79, 216, 33);
@@ -26,16 +28,19 @@
   --hinshi-icon-bg-color-fukushi: rgb(167, 88, 220);
   --hinshi-icon-bg-color-jukugo: rgb(210, 38, 121);
   --hinshi-icon-bg-color-settou: red;
-    /* scrollbar */
-    --scrollbar-thumb-color:rgb(226, 226, 226);
-    --scrollbar-thumb-hover-color:rgb(206, 206, 206);
-    --scrollbar-thumb-active-color:rgb(186, 186, 186);
+  /* scrollbar */
+  --scrollbar-thumb-color: rgb(226, 226, 226);
+  --scrollbar-thumb-hover-color: rgb(206, 206, 206);
+  --scrollbar-thumb-active-color: rgb(186, 186, 186);
 }
 html[color-scheme="dark"] {
-  --primary-bg-color: #2a2a2a;
-  --secondary-bg-color: #1e1e1e;
+  --header-bg-color: rgb(21, 21, 21);
+  --primary-bg-color: rgb(42, 42, 42);
+  --secondary-bg-color: rgb(31, 31, 31);
+  --tertiary-bg-color: rgb(35, 35, 35);
   --border-1px-color: #5d5d5d;
-  --border-color: #1e1e1e;
+  --border-color: transparent;
+  --separator-color: rgb(62, 62, 62);
   --primary-text-color: rgb(213, 213, 213);
   --secondary-text-color: #b7b7b7;
   --answer-text-color: #5b5b5b;
@@ -62,7 +67,7 @@ html[color-scheme="dark"] {
   --hinshi-icon-bg-color-jukugo: rgb(210, 38, 121);
   --hinshi-icon-bg-color-settou: red;
   /* scrollbar */
-  --scrollbar-thumb-color:rgb(57, 57, 57);
-  --scrollbar-thumb-hover-color:rgb(67, 67, 67);
-  --scrollbar-thumb-active-color:rgb(77, 77, 77);
+  --scrollbar-thumb-color: rgb(57, 57, 57);
+  --scrollbar-thumb-hover-color: rgb(67, 67, 67);
+  --scrollbar-thumb-active-color: rgb(77, 77, 77);
 }
