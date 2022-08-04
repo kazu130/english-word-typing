@@ -41,20 +41,20 @@ header {
   justify-content: space-between;
   background-color: var(--header-bg-color);
   border-bottom: 1px solid var(--border-color);
+  padding: 0 24px;
 }
-.title {
-  margin-left: 2rem;
-  padding: 0.3rem;
-  font-size: 1.4rem;
-  font-family: "Google Sans", sans-serif;
-  font-weight: 500;
+.main-logo-box {
+  display: flex;
+  align-items: center;
 }
-.title > a {
-  text-decoration: none;
-  color: var(--secondary-text-color);
+.main-logo {
+  height: 24px;
+  opacity: 0.8;
+}
+.main-logo path {
+  fill: var(--primary-text-color);
 }
 #theme-toggle-button {
-  margin-right: 2rem;
   cursor: pointer;
   border-radius: 20px;
   border: none;
@@ -315,7 +315,7 @@ input:focus {
   grid-row: 1 / span 4;
   height: 100%;
   overflow-y: scroll;
-  background:var(--tertiary-bg-color);
+  background: var(--tertiary-bg-color);
   width: 100%;
   border-left: 1px solid var(--border-color);
   position: relative;
