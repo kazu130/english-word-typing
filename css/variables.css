@@ -39,7 +39,7 @@ html[color-scheme="dark"] {
   --secondary-bg-color: rgb(31, 31, 31);
   --tertiary-bg-color: rgb(35, 35, 35);
   --border-1px-color: #5d5d5d;
-  --border-color: transparent;
+  --border-color: var(--tertiary-bg-color);
   --separator-color: rgb(62, 62, 62);
   --primary-text-color: rgb(213, 213, 213);
   --secondary-text-color: #b7b7b7;
