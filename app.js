@@ -10,6 +10,54 @@ var hinshi_list = [
   ["ｈ", "settou", "接頭"],
 ];
 
+const hinshiDict = {
+  ｍ: {
+    kanji: "名詞",
+    romaji: "meishi",
+    icon: "名",
+  },
+  ｔ: {
+    kanji: "他動詞",
+    romaji: "tadoushi",
+    icon: "他",
+  },
+  ｊ: {
+    kanji: "自動詞",
+    romaji: "jidoushi",
+    icon: "自",
+  },
+  ｋ: {
+    kanji: "形容詞",
+    romaji: "keiyoushi",
+    icon: "形",
+  },
+  ｚ: {
+    kanji: "前置詞",
+    romaji: "zenchishi",
+    icon: "前",
+  },
+  ｓ: {
+    kanji: "接続",
+    romaji: "setsuzokushi",
+    icon: "接",
+  },
+  ｆ: {
+    kanji: "副詞",
+    romaji: "fukushi",
+    icon: "副",
+  },
+  ｃ: {
+    kanji: "句",
+    romaji: "jukugo",
+    icon: "句",
+  },
+  ｈ: {
+    kanji: "接頭",
+    romaji: "settou",
+    icon: "接頭",
+  },
+};
+
 function getRnd(max) {
   return Math.floor(Math.random() * 10000) % max;
 }
@@ -208,49 +256,27 @@ function init() {
 }
 
 function replaceHinshiIcon(n) {
+  let rows = [];
   let replaced = words_ja[n];
-  for (let i = 0; i < hinshi_list.length; i++) {
-    let re = new RegExp(`${hinshi_list[i][0]}(.*?)(?=$|\<div|[ａ-ｚ])`);
-    let match = replaced.match(re);
-    let word = "";
-    if (match) {
-      word = match[1];
-      if (word.length > 18) {
-        console.log("long: ", match[1]);
-        let separators = ["、", "・", ";", "）)"];
-        for (let s in separators) {
-          let separator_re = new RegExp(`([${separators[s]}])`);
-          for (let j = word.length - 1; j >= 0; j--) {
-            console.log(word[j]);
-            let m = word[j].match(separator_re);
-            if (m && word.length - j < 18) {
-              word = `${word.slice(0, j + 1)}<br>${word.slice(j + 1)}`;
-              break;
-            }
-          }
-          if (word.match(/\<br\>/)) {
-            break;
-          }
-        }
-      }
-    }
-    replaced = replaced.replace(
-      re,
+  let hinshi_keys = Object.keys(hinshiDict).join("");
+  let re = new RegExp(`([${hinshi_keys}])(.*?)(?=$|[${hinshi_keys}])`, "g");
+  let match = replaced.match(re);
+  console.log(match);
+  for (let i = 0; i < match.length; i++) {
+    let hinshi_key = match[i][0];
+    let word_japanese = match[i].slice(1);
+    rows.push(
       `
       <div class="word-row">
-        <div class="hinshi-icon-${hinshi_list[i][1]}">
-          <div class="icon-inner">
-            ${hinshi_list[i][2]}
-          </div>
+        <div class="hinshi-icon-${hinshiDict[hinshi_key].romaji}">
+          <div class="icon-inner">${hinshiDict[hinshi_key].icon}</div>
         </div>
-        <div class="word">
-          ${word}
-        </div>
+        <div class="word">${word_japanese}</div>
       </div>
-      `.replace(/\n|\r/g, "")
+      `
     );
   }
-  replaced_words_ja.push(replaced);
+  replaced_words_ja.push(rows.join(""));
 }
 
 var results_i;
